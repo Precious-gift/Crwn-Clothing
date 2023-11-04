@@ -1,23 +1,15 @@
-//import Home from "./components/routes/home/home.component";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Fragment } from "react";
+import Navigation from "./components/routes/navigation/navigation.component";
 
 const App = () => {
   return (
-    <div>
-      <h1 style={{ marginBottom: "20px" }}>My Nav</h1>
-      <ul>
-        <li>
-          <Link to={`/`}>Nav</Link>
-        </li>
-        <li>
-          <Link to={`home`}>Home</Link>
-        </li>
-      </ul>
+    <Fragment>
+      <Navigation />
       <div id="mainContent">
         <Outlet />
       </div>
-      {/* <Home /> */}
-    </div>
+    </Fragment>
   );
 };
 
