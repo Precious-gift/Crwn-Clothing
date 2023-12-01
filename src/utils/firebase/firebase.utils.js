@@ -35,7 +35,10 @@ export const signInWithGooglePopUp = () => signInWithPopup(auth, provider);
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, provider);
 export const db = getFirestore();
-export const createUserDocFromAuth = async (userAuth) => {
+export const createUserDocFromAuth = async (
+  userAuth,
+  additionalInformation = { displayName: "mike" }
+) => {
   const userDocRef = doc(db, "users", userAuth.uid);
 
   console.log(userDocRef);
@@ -50,7 +53,12 @@ export const createUserDocFromAuth = async (userAuth) => {
     const createdAt = new Date();
 
     try {
-      await setDoc(userDocRef, { displayName, email, createdAt });
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+        ...additionalInformation,
+      });
     } catch (error) {
       console.log("error creating the user", error.message);
     }
@@ -61,19 +69,6 @@ export const createUserDocFromAuth = async (userAuth) => {
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
-  const user = auth.currentUser;
-  if (user !== null) {
-    // The user object has basic properties such as display name, email, etc.
-    const displayName = user.displayName;
-    const email = user.email;
-    const photoURL = user.photoURL;
-    const emailVerified = user.emailVerified;
 
-    const uid = user.uid;
-    console.log(
-      `${displayName}\n${email}\n${photoURL}\n${emailVerified}\n${uid}`
-    );
-  } else {
-    return await createUserWithEmailAndPassword(auth, email, password);
-  }
+  return await createUserWithEmailAndPassword(auth, email, password);
 };
