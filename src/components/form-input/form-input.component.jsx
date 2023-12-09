@@ -4,6 +4,7 @@ const FormInput = (props) => {
   const { label, ...otherProps } = props;
   return (
     <div className="group">
+      <input className="form-input" {...otherProps} />
       {label && (
         <label
           className={`${
@@ -13,8 +14,6 @@ const FormInput = (props) => {
           {label}
         </label>
       )}
-
-      <input className="form-input" {...otherProps} />
     </div>
   );
 };
