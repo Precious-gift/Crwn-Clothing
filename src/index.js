@@ -5,7 +5,7 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./components/routes/home/home.component";
-import SignIn from "./components/routes/sign-in/sign-in.component";
+import Authentication from "./components/routes/authentication/authentication.component";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +17,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "signIn",
-        element: <SignIn />,
+        path: "auth",
+        element: <Authentication />,
       },
     ],
   },
