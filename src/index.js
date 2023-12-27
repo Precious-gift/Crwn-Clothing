@@ -6,6 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./components/routes/home/home.component";
 import Authentication from "./components/routes/authentication/authentication.component";
+import { UserProvider } from "./contexts/user.context";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-    {/* <App /> */}
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
 
