@@ -19,6 +19,9 @@ const Navigation = () => {
         <Link to={`/`} className="nav-link">
           Home
         </Link>
+        <Link to={`/shop`} className="nav-link">
+          Shop
+        </Link>
         {currentUser ? (
           <span
             className="nav-link"

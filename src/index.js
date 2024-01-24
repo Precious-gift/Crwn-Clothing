@@ -6,6 +6,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./components/routes/home/home.component";
 import Authentication from "./components/routes/authentication/authentication.component";
+import Shop from "./components/routes/shop/shop.component";
 import { UserProvider } from "./contexts/user.context";
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "shop",
+        element: <Shop />,
       },
       {
         path: "auth",
