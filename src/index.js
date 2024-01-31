@@ -8,6 +8,7 @@ import Home from "./components/routes/home/home.component";
 import Authentication from "./components/routes/authentication/authentication.component";
 import Shop from "./components/routes/shop/shop.component";
 import { UserProvider } from "./contexts/user.context";
+import { ProductsProvider } from "./contexts/products.context";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <RouterProvider router={router} />
+      <ProductsProvider>
+        <RouterProvider router={router} />
+      </ProductsProvider>
     </UserProvider>
   </React.StrictMode>
 );
