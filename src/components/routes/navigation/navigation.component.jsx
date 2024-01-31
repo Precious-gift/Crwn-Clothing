@@ -4,7 +4,7 @@ import "./navigation.styles.scss";
 import { useContext } from "react";
 import { UserContext } from "../../../contexts/user.context";
 import { signOutUser } from "../../../utils/firebase/firebase.utils";
-
+import CartIcon from "../../cart-icon/cart-icon.component";
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
 
@@ -16,9 +16,6 @@ const Navigation = () => {
         </div>
       </Link>
       <div className="nav-links-container">
-        <Link to={`/`} className="nav-link">
-          Home
-        </Link>
         <Link to={`/shop`} className="nav-link">
           Shop
         </Link>
@@ -35,6 +32,7 @@ const Navigation = () => {
             Sign In
           </Link>
         )}
+        <CartIcon />
       </div>
     </div>
   );
