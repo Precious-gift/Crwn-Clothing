@@ -9,6 +9,7 @@ import Authentication from "./components/routes/authentication/authentication.co
 import Shop from "./components/routes/shop/shop.component";
 import { UserProvider } from "./contexts/user.context";
 import { ProductsProvider } from "./contexts/products.context";
+import { CartDropdownProvider } from "./contexts/cart.context";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,9 @@ root.render(
   <React.StrictMode>
     <UserProvider>
       <ProductsProvider>
-        <RouterProvider router={router} />
+        <CartDropdownProvider>
+          <RouterProvider router={router} />
+        </CartDropdownProvider>
       </ProductsProvider>
     </UserProvider>
   </React.StrictMode>
