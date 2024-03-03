@@ -1,0 +1,82 @@
+.table-responsive {
+  display: flex;
+  justify-content: center;
+
+  .table {
+    width: 50%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+
+    tr {
+      border-bottom: 1px solid #dddddd;
+
+      th {
+        text-align: left;
+        padding: 10px 0;
+      }
+
+      td {
+        padding: 10px 0;
+      }
+
+      th:nth-child(1),
+      td:nth-child(1) {
+        width: 25%;
+      }
+
+      th:nth-child(2),
+      td:nth-child(2) {
+        width: 25%;
+      }
+
+      th:nth-child(3),
+      td:nth-child(3) {
+        width: 25%;
+      }
+
+      th:nth-child(4),
+      td:nth-child(4) {
+        width: 25%;
+      }
+
+      th:nth-child(5),
+      td:nth-child(5) {
+        width: 25%;
+      }
+    }
+
+    tr:nth-last-child(1) {
+      border-bottom: 0px;
+
+      td {
+        padding: 20px 0;
+      }
+    }
+  }
+
+  .quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+  }
+
+  .price,
+  .cancel {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .image-container img {
+    width: 80%;
+  }
+
+  .total {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+}

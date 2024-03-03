@@ -16,6 +16,14 @@
     display: flex;
     justify-content: center;
 
+    a {
+        color: white;
+
+        &:hover {
+            color: black;
+        }
+    }
+
     &:hover {
         background-color: white;
         color: black;
