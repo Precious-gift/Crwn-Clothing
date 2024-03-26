@@ -8,9 +8,11 @@ import Home from "./components/routes/home/home.component";
 import Authentication from "./components/routes/authentication/authentication.component";
 import Shop from "./components/routes/shop/shop.component";
 import Checkout from "./components/routes/checkout/checkout.component";
+import CategoriesPreview from "./components/routes/categories-preview/categories-preview.component";
+import Category from "./components/routes/category/category.component";
 import { UserProvider } from "./contexts/user.context";
-import { ProductsProvider } from "./contexts/products.context";
 import { CartDropdownProvider } from "./contexts/cart.context";
+import { CategoriesProvider } from "./contexts/categories.context";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,17 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
+        children: [
+          {
+            path: "*",
+            index: true,
+            element: <CategoriesPreview />,
+          },
+          {
+            path: ":category",
+            element: <Category />,
+          },
+        ],
       },
       {
         path: "checkout",
@@ -41,11 +54,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <ProductsProvider>
+      <CategoriesProvider>
         <CartDropdownProvider>
           <RouterProvider router={router} />
         </CartDropdownProvider>
-      </ProductsProvider>
+      </CategoriesProvider>
     </UserProvider>
   </React.StrictMode>
 );

@@ -61,10 +61,15 @@
     width: 50%;
   }
 
-  .price,
-  .cancel {
+  .price {
     display: flex;
     justify-content: left;
+    align-items: center;
+  }
+
+  .cancel {
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
 

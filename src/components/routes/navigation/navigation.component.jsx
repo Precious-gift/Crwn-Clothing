@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "../../../assets/crown.svg";
-import "./navigation.styles.scss";
+import {
+  NavigationContainer,
+  LogoContainer,
+  NavLinks,
+  NavLink,
+} from "./navigation.styles";
 import { useContext } from "react";
 import { UserContext } from "../../../contexts/user.context";
 import { CartDropdownContext } from "../../../contexts/cart.context";
@@ -12,33 +17,25 @@ const Navigation = () => {
   const { dropDownActive, setDropDownActive } = useContext(CartDropdownContext);
 
   return (
-    <div className="navigation">
-      <Link to={`/`} className="logo-container">
+    <NavigationContainer>
+      <LogoContainer to={`/`}>
         <div>
           <CrwnLogo style={{ width: "100%" }} />
         </div>
-      </Link>
-      <div className="nav-links-container">
-        <Link to={`/shop`} className="nav-link">
-          Shop
-        </Link>
+      </LogoContainer>
+      <NavLinks>
+        <NavLink to={`/shop`}>Shop</NavLink>
         {currentUser ? (
-          <span
-            className="nav-link"
-            onClick={signOutUser}
-            style={{ cursor: "pointer" }}
-          >
+          <NavLink onClick={signOutUser} as="span">
             Sign Out
-          </span>
+          </NavLink>
         ) : (
-          <Link to={`/auth`} className="nav-link">
-            Sign In
-          </Link>
+          <NavLink to={`/auth`}>Sign In</NavLink>
         )}
         <CartIcon onClick={() => setDropDownActive(!dropDownActive)} />
-      </div>
+      </NavLinks>
       {dropDownActive && <CartDropdown />}
-    </div>
+    </NavigationContainer>
   );
 };
 

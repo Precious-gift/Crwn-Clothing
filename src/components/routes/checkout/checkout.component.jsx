@@ -29,7 +29,7 @@ const Checkout = () => {
               <tr key={item.id}>
                 <td>
                   <div className="image-container">
-                    <img src={item.image} alt={item.name} />
+                    <img src={item.imageUrl} alt={item.name} />
                   </div>
                 </td>
                 <td>{item.name}</td>
